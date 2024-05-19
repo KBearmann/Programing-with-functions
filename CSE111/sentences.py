@@ -24,9 +24,9 @@ def get_determiner(quantity):
 
 def get_noun(quantity):
     if quantity == 'single':
-        nouns = ['boy', 'dog', 'girl', 'man', 'woman', 'cat']
+        nouns = ['boy', 'dog', 'girl', 'guy', 'woman', 'cat']
     else:
-        nouns = ['boys', 'dogs', 'girls', 'men', 'women', 'cats']
+        nouns = ['boys', 'dogs', 'girls', 'guys', 'women', 'cats']
     return random.choice(nouns)
 
 def get_verb(quantity, tense):
@@ -44,4 +44,4 @@ def get_verb(quantity, tense):
         verbs = ['will laugh', 'will eat', 'will drink', 'will walk', 'will think', 'will write']
     return random.choice(verbs)
 
-main().
+main()
