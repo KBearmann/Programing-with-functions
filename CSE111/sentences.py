@@ -1,7 +1,7 @@
 import random
 
 def main():
-    # Generate and print sentences with the required characteristics
+    # Generate then print sentences
     sentences = [
         make_sentence('single', 'past'),
         make_sentence('single', 'present'),
@@ -18,8 +18,9 @@ def make_sentence(quantity, tense):
     determiner = get_determiner(quantity)
     noun = get_noun(quantity)
     verb = get_verb(quantity, tense)
+    adjective = get_adjective(quantity)
     prepositional_phrase = get_prepositional_phrase(quantity)
-    sentence = f"{determiner} {noun} {verb} {prepositional_phrase}."
+    sentence = f"{determiner} {adjective} {noun} {verb} {prepositional_phrase}."
     return sentence.capitalize()
 
 def get_determiner(quantity):
@@ -68,4 +69,12 @@ def get_prepositional_phrase(quantity):
     noun = get_noun(quantity)
     return f"{preposition} {determiner} {noun}"
 
-main()
+def get_adjective(quantity):
+    if quantity == 'single':
+        adjectives = ['quick', 'lazy', 'sleepy', 'noisy', 'hungry']
+    else:
+        adjectives = ['quick', 'lazy', 'sleepy', 'noisy', 'hungry']
+    return random.choice(adjectives)
+
+if __name__ == "__main__":
+    main()
