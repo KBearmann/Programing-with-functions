@@ -1,18 +1,25 @@
 import random
 
 def main():
-    # Generate and print sentences
-    for _ in range(5):
-        quantity = random.choice(['single', 'plural'])
-        tense = random.choice(['past', 'present', 'future'])
-        sentence = make_sentence(quantity, tense)
+    # Generate and print sentences with the required characteristics
+    sentences = [
+        make_sentence('single', 'past'),
+        make_sentence('single', 'present'),
+        make_sentence('single', 'future'),
+        make_sentence('plural', 'past'),
+        make_sentence('plural', 'present'),
+        make_sentence('plural', 'future')
+    ]
+    
+    for sentence in sentences:
         print(sentence)
 
 def make_sentence(quantity, tense):
     determiner = get_determiner(quantity)
     noun = get_noun(quantity)
     verb = get_verb(quantity, tense)
-    sentence = f"{determiner} {noun} {verb}."
+    prepositional_phrase = get_prepositional_phrase(quantity)
+    sentence = f"{determiner} {noun} {verb} {prepositional_phrase}."
     return sentence.capitalize()
 
 def get_determiner(quantity):
@@ -24,9 +31,9 @@ def get_determiner(quantity):
 
 def get_noun(quantity):
     if quantity == 'single':
-        nouns = ['boy', 'dog', 'girl', 'guy', 'woman', 'cat']
+        nouns = ['boy', 'dog', 'girl', 'man', 'woman', 'cat']
     else:
-        nouns = ['boys', 'dogs', 'girls', 'guys', 'women', 'cats']
+        nouns = ['boys', 'dogs', 'girls', 'men', 'women', 'cats']
     return random.choice(nouns)
 
 def get_verb(quantity, tense):
@@ -43,5 +50,22 @@ def get_verb(quantity, tense):
     else:  # future
         verbs = ['will laugh', 'will eat', 'will drink', 'will walk', 'will think', 'will write']
     return random.choice(verbs)
+
+def get_preposition():
+    prepositions = [
+        "about", "above", "across", "after", "along",
+        "around", "at", "before", "behind", "below",
+        "beyond", "by", "despite", "except", "for",
+        "from", "in", "into", "near", "of",
+        "off", "on", "onto", "out", "over",
+        "past", "to", "under", "with", "without"
+    ]
+    return random.choice(prepositions)
+
+def get_prepositional_phrase(quantity):
+    preposition = get_preposition()
+    determiner = get_determiner(quantity)
+    noun = get_noun(quantity)
+    return f"{preposition} {determiner} {noun}"
 
 main()
