@@ -22,12 +22,12 @@ def read_dictionary(filename, key_column_index):
 
 def main():
     # read the products.csv file into a dictionary
-    products_dict = read_dictionary('products.csv', 0)
+    products_dict = read_dictionary('products', 0)
     print("All Products")
     print(products_dict)
 
     # open request.csv file
-    with open('request.csv', mode='r') as file:
+    with open('request', mode='r') as file:
         reader = csv.reader(file)
         next(reader)  
         print("\nRequested Items")
