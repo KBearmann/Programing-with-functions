@@ -17,7 +17,7 @@ def read_dictionary(filename, key_column_index):
     try:
         with open(filename, mode='r') as file:
             reader = csv.reader(file)
-            next(reader) 
+            next(reader)  
             for row in reader:
                 print(f"Row read from CSV: {row}") 
                 if len(row) <= key_column_index:
