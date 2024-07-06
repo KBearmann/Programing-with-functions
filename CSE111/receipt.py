@@ -1,7 +1,7 @@
 import csv
 from datetime import datetime
 import os
-
+ 
 def read_dictionary(filename, key_column_index):
     """Read the contents of a CSV file into a compound
     dictionary and return the dictionary.
